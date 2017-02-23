@@ -1,0 +1,29 @@
+{
+  "name": "strip-www",
+  "description": "Remove a \"www\" sub-domain.",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": "Steven Vachon <contact@svachon.com> (https://www.svachon.com/)",
+  "main": "lib/url-node",
+  "browser": "lib/url-browser",
+  "repository": "stevenvachon/strip-www",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0"
+  },
+  "engines": {
+    "node": ">= 4"
+  },
+  "scripts": {
+    "test": "mocha test --check-leaks --bail"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "domain",
+    "sub-domain",
+    "url",
+    "www"
+  ]
+}
