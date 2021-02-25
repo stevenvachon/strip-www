@@ -1,7 +1,7 @@
 {
   "name": "strip-www",
-  "description": "Remove a \"www\" sub-domain.",
-  "version": "1.0.0",
+  "description": "Remove a leading \"www\" subdomain from a hostname.",
+  "version": "1.0.1",
   "license": "MIT",
   "author": "Steven Vachon <contact@svachon.com> (https://www.svachon.com/)",
   "main": "lib/url-node",

@@ -1,5 +1,5 @@
 "use strict";
-const pattern = /^www\.(.+\..+)$/;
+var pattern = /^www\.(.+\..+)$/;
 
 
 

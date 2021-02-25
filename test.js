@@ -13,6 +13,10 @@ it(`removes a "www" subdomain`, () =>
 	expect( stripWWW("www2.domain.com") ).to.equal("www2.domain.com");
 	expect( stripWWW("wwww.domain.com") ).to.equal("wwww.domain.com");
 	expect( stripWWW("wwww.ᄯᄯᄯ.com") ).to.equal("wwww.ᄯᄯᄯ.com");
+
+	expect( stripWWW("www.www.domain.com") ).to.equal("www.domain.com");
+	expect( stripWWW("www.www.domain.co.uk") ).to.equal("www.domain.co.uk");
+	expect( stripWWW("www.www.ᄯᄯᄯ.com") ).to.equal("www.ᄯᄯᄯ.com");
 });
 
 
@@ -32,9 +36,7 @@ it(`doesn't remove a "www" top-level domain`, () =>
 
 
 
-it(`erroneously removes a "www" sub-subdomain`, () =>
+it(`erroneously removes a "www" domain`, () =>
 {
-	expect( stripWWW("www.www.domain.com") ).to.equal("www.domain.com");
-	expect( stripWWW("www.www.domain.co.uk") ).to.equal("www.domain.co.uk");
-	expect( stripWWW("www.www.ᄯᄯᄯ.com") ).to.equal("www.ᄯᄯᄯ.com");
+	expect( stripWWW("www.co.uk") ).to.equal("co.uk");
 });
