@@ -1,12 +1,24 @@
 "use strict";
-const pattern = /^www\.(.+\..+)$/;
+const {parseDomain, ParseResultType} = require("parse-domain");
 
 
 
-function stripWWW(hostname)
+const stripWWW = hostname =>
 {
-	return hostname.replace(pattern, "$1");
-}
+	const parsed = parseDomain(hostname);
+
+	if (parsed.type !== ParseResultType.Listed)
+	{
+		return hostname;
+	}
+	else
+	{
+		const domain = parsed.domain ? [parsed.domain] : [];
+		const subdomains = parsed.subDomains[0] === "www" ? parsed.subDomains.slice(1) : parsed.subDomains;
+
+		return [...subdomains, ...domain, ...parsed.topLevelDomains].join(".");
+	}
+};
 
 
 
